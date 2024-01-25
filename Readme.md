@@ -11,5 +11,5 @@ In other tools,  cvc5 runs with cvc5 on Linux, and Z3 runs with JupyterLab on Wi
 
 SeaHorn runs with docker on Linux，but all failed. PolySynth runs on Linux with scripts from
 
-their websites: https://github.com/polysynth
+their websites: https://github.com/hitarths/polysynth
 
