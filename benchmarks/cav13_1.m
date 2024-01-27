@@ -46,12 +46,11 @@ h_degree=2;
 %set degree of delta(x) except the inductive condition
 deltadegree=2;
 %set degree of wi_xy
-wi_xy_degree=3;
+wi_xy_degree=2;
 
 %a is coef of inv, inv is h(x) here
 %inv is in this form:a(1)+x1*a(2)+x2*a(3)+x1^2*a(4)+x1*x2*a(5)+x2^2*a(6)
-%h_x: 2*x1^2+2*x2^2
-%difference is the coef
+
 [inv,a]=polynomial(xvars,h_degree);
 % sdpvar a0 a1 a2;
 % inv=a0+a1*x1^2+a2*x2^2;

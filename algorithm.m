@@ -7,9 +7,9 @@ tic;
 % ex3;
 % ex4;
 % ex4_001;
-% cav13_1;
+cav13_1;
 % cav13_2;
-cohencu; 
+% cohencu; 
 % unicycle;
 % circuit;   
 
@@ -67,13 +67,6 @@ p_val=double(a);
 %generate txy
 %
 t_xy=generate_txy(p_x,h_x,deltadegree,d_neg,vars,wi_xy_degree);
-
-p_val=[11.0223;
-    2.5898;
-    4.5210;
-  -13.2485;
-   -6.3980;
-   -8.3639];
 
 
 for times=1:max_iter
