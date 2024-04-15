@@ -10,8 +10,8 @@ tic;
 % cav13_1;
 % cav13_2;
 % cohencu; 
-% unicycle;
-circuit;   
+unicycle;
+% circuit;   
 
 
 
@@ -30,7 +30,17 @@ p_val=zeros(a_len,1);
 for times=1:max_iter
 
     %iteration 1;
-    
+    sdp_cons=sdp_cons_init();
+    sdp_cons{1}=xvars;
+    sdp_cons{2}=[a];
+    % pre cond
+    for i=1:length(prelist)
+         sdp_cons = SOSnew(prelist{i},inv,sdp_cons,0,deltadegree);
+    end
+    %post with -loopcond
+    for i=1:length(negpostlist)
+        sdp_cons = SOSnew([negpostlist{i};-loop_cond_ineq], -inv, sdp_cons, epsilon,deltadegree);
+    end
     %initial sdp_cons;
     
     
