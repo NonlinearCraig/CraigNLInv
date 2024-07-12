@@ -3,7 +3,7 @@ KILL_TIMEOUT=10  # Kill the process after 10 seconds if not exited after sending
 OUTPUT_FILE=outpus.csv
 
 echo "Benchmark,Result,Time (seconds)" > $OUTPUT_FILE
-for name in ex1 ex2 ex3 ex4 ex4_001 cav13-1 cav13-2 unicycle cohencu circuit 
+for name in car discrete logistic sgd sgd_001 cav13-1 cav13-2 unicycle cohencu circuit deter bound1 bound2 contrived transcend basin lyapunov motivate
 do
 cmd="timeout -k $KILL_TIMEOUT $TIMEOUT python3 Code/synthesizer.py --filename inputs/$name/$name.c --target ./outputs/$name/"
 echo "Running $cmd..."

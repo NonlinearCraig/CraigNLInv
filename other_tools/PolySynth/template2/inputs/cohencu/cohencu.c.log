@@ -22,3 +22,15 @@ QP with handelman size: 45
 QP without handelman size: 55
 Number of L-vars with handelman: 164
 Number of L-vars without handelman: 126
+##########
+Execution start time: 2024-06-27 21:48:18.210161
+##########
+Execution start time: 2024-06-27 21:50:22.870851
+##########
+Execution start time: 2024-06-27 23:41:59.036472
+Constraint Pair Generation Time: 0.04373169 s
+QP Generation Time: 0.57795644s
+QP with handelman size: 45
+QP without handelman size: 55
+Number of L-vars with handelman: 164
+Number of L-vars without handelman: 126

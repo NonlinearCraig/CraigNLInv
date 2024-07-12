@@ -92,59 +92,112 @@ def get_symbolic_poly(symbolic_poly, real_vars):
     print(monomial_vector)
     print(f_name)
 
+    # mono_d1={# ex1: 1+a1*x1+a2*x1^2
+    #          'ex1.c': [sympy_vars[0], sympy_vars[0] ** 2],
+    #          # ex2: 1+a1*x1^2+a2*x2^2
+    #          'ex2.c': [sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # ex3: 1+a1*x1+a2*x1^2
+    #          'ex3.c': [sympy_vars[0], sympy_vars[0] ** 2],
+    #          # ex4 : a0+a1*x1-x1^2
+    #          'ex4.c': [1, sympy_vars[0]],
+    #          # ex4_001 : a0+a1*x1-x1^2
+    #          'ex4_001.c': [1, sympy_vars[0]],
+    #          # cav13-1 : a0+a1*x1^2+a2*x2^2
+    #          'cav13-1.c':[1, sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # cav13-2 a0+a1*x2+a2*x1**2+a3*x2**2
+    #          'cav13-2.c':[1,sympy_vars[1],sympy_vars[0]**2,sympy_vars[1]**2],
+    #          # cohencu a0+a1*x1+a2*x2+a3*x1**2
+    #          'cohencu.c': [1, sympy_vars[0], sympy_vars[1], sympy_vars[0] ** 2],
+    #          # unicycle a0+a1*x1*x2+a2*x1^2+a3*x2^2
+    #          'unicycle.c':[1, sympy_vars[0] * sympy_vars[1], sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # circuit a0++a1*x1*x2+a2*x1^2+a3*x2^2
+    #          'circuit.c':[1, sympy_vars[0] * sympy_vars[1], sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # deter a0+a1*x2^2+a2*x1^2+a3*x1
+    #          'deter.c':[1, sympy_vars[0] , sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # bound1 a0+a2*x2^2+a3*x1^2
+    #          'bound1.c': [1,  sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # bound2 a0+a2*x2^2+a3*x1^2
+    #          'bound2.c': [1, sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # -1+a0*x1+a1*x2+a2*x2^2+a3*x1^2
+    #          'contrived.c':[sympy_vars[0], sympy_vars[1], sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # inv=a0-x1^2-x2^2+a3*x2;
+    #          'transcend.c': [1, sympy_vars[1]],
+    #          # inv=a0+a1*x1^2+a2*x2^2+a3*x1+a4*x2;
+    #          'basin.c':[1, sympy_vars[0],sympy_vars[1],sympy_vars[0] ** 2, sympy_vars[1] ** 2],
+    #          # inv=a0+a1*x1^2+a2*x2^2+a3*x3^2+a4*x1*x2+a5*x2*x3+a6*x1
+    #          'lyapunov.c':[1, sympy_vars[0], sympy_vars[0]*sympy_vars[1],sympy_vars[1]*sympy_vars[2], sympy_vars[2] ** 2, sympy_vars[1] ** 2,sympy_vars[0] ** 2],
+    #          # a0+a1*x2+a2*x2^2+a3*x3
+    #          'motivate.c':[1, sympy_vars[1], sympy_vars[1] ** 2, sympy_vars[2] ** 2]
+    #          }
+    # Find the index of the last forward slash
+    last_slash_index = f_name.rfind('/')
+
+    # If there is no forward slash, return the entire string
+    if last_slash_index == -1:
+        mono_key = f_name
+    else:
+        mono_key = f_name[last_slash_index + 1:]
+    print(mono_key)
+
+
+
     # ex1: 1+a1*x1+a2*x1^2
-    if  "ex1.c" in f_name:
+    if "car.c" == mono_key:
         monomial_vector = [sympy_vars[0], sympy_vars[0] ** 2]
     # ex2: 1+a1*x1^2+a2*x2^2
-    elif "ex2.c" in f_name:
+    elif "discrete.c" == mono_key:
         monomial_vector = [sympy_vars[0] ** 2, sympy_vars[1] ** 2]
     # ex3: 1+a1*x1+a2*x1^2
-    elif "ex3.c" in f_name:
+    elif "logistic.c"  == mono_key:
         monomial_vector = [sympy_vars[0], sympy_vars[0] ** 2]
     # ex4 : a0+a1*x1-x1^2
-    elif "ex4.c" in f_name:
+    elif "sgd.c" == mono_key:
         monomial_vector = [1, sympy_vars[0]]
     # ex4 : a0+a1*x1-x1^2
-    elif "ex4_001.c" in f_name :
+    elif "sgd_001.c"  == mono_key:
         monomial_vector = [1, sympy_vars[0]]
     # cav13-1 : a0+a1*x1^2+a2*x2^2
-    elif "cav13-1.c" in f_name:
+    elif "cav13-1.c"  == mono_key:
         monomial_vector = [1, sympy_vars[0] ** 2, sympy_vars[1] ** 2]
     # cav13-2 a0+a1*x2+a2*x1**2+a3*x2**2
-    elif "cav13-2.c" in f_name:
-        monomial_vector = [1,sympy_vars[1],sympy_vars[0]**2,sympy_vars[1]**2]
+    elif "cav13-2.c"  == mono_key:
+        monomial_vector = [1, sympy_vars[1], sympy_vars[0] ** 2, sympy_vars[1] ** 2]
     # cohencu a0+a1*x1+a2*x2+a3*x1**2
-    elif "cohencu.c" in f_name:
+    elif "cohencu.c"  == mono_key:
         monomial_vector = [1, sympy_vars[0], sympy_vars[1], sympy_vars[0] ** 2]
     # unicycle a0+a1*x1*x2+a2*x1^2+a3*x2^2
-    elif "unicycle.c" in f_name:
-        monomial_vector = [1,sympy_vars[0]*sympy_vars[1],sympy_vars[0]**2,sympy_vars[1]**2]
-    # circuit a0++a1*x1*x2+a2*x1^2+a3*x2^2
-    elif 'circuit.c' in f_name:
+    elif "unicycle.c"  == mono_key:
         monomial_vector = [1, sympy_vars[0] * sympy_vars[1], sympy_vars[0] ** 2, sympy_vars[1] ** 2]
-    else:
-        monomial_vector = list(all_monomials)
+    # circuit a0++a1*x1*x2+a2*x1^2+a3*x2^2
+    elif 'circuit.c'  == mono_key:
+        monomial_vector = [1, sympy_vars[0] * sympy_vars[1], sympy_vars[0] ** 2, sympy_vars[1] ** 2]
+    # deter a0+a1*x2^2+a2*x1^2+a3*x1
+    elif 'deter.c'  == mono_key:
+        monomial_vector = [1, sympy_vars[0], sympy_vars[0] ** 2, sympy_vars[1] ** 2]
+    # bound1 a0+a2*x2^2+a3*x1^2
+    elif 'bound1.c'  == mono_key:
+        monomial_vector = [1, sympy_vars[0] ** 2, sympy_vars[1] ** 2]
+    # bound2 a0+a2*x2^2+a3*x1^2
+    elif 'bound2.c'  == mono_key:
+        monomial_vector = [1, sympy_vars[0] ** 2, sympy_vars[1] ** 2]
+    # -1+a0*x1+a1*x2+a2*x2^2+a3*x1^2
+    elif 'contrived.c' == mono_key:
+        monomial_vector = [sympy_vars[0], sympy_vars[1], sympy_vars[0] ** 2, sympy_vars[1] ** 2]
+    # inv=a0-x1^2-x2^2+a3*x2;
+    elif 'transcend.c'  == mono_key:
+        monomial_vector = [1, sympy_vars[1]]
+    # inv=a0+a1*x1^2+a2*x2^2+a3*x1+a4*x2;
+    elif 'basin.c' == mono_key:
+        monomial_vector = [1, sympy_vars[0],sympy_vars[1],sympy_vars[0] ** 2, sympy_vars[1] ** 2]
+    # inv=a0+a1*x1^2+a2*x2^2+a3*x3^2+a4*x1*x2+a5*x2*x3+a6*x1
+    elif 'lyapunov.c' == mono_key:
+        monomial_vector = [1, sympy_vars[0], sympy_vars[0]*sympy_vars[1],sympy_vars[1]*sympy_vars[2], sympy_vars[2] ** 2, sympy_vars[1] ** 2,sympy_vars[0] ** 2]
+    # a0+a1*x2+a2*x2^2+a3*x3
+    elif 'motivate.c' == mono_key:
+        monomial_vector = [1, sympy_vars[1], sympy_vars[1] ** 2, sympy_vars[2] ** 2]
 
-    # ex3: 1+a1*x1+a2*x1^2
-    #monomial_vector = [sympy_vars[0], sympy_vars[0] ** 2]
 
-    # ex4 and ex4_001: a0+a1*x1-x1^2
-    #monomial_vector = [1,sympy_vars[0]]
 
-    #cav13-1 : a0+a1*x1^2+a2*x2^2
-    #monomial_vector = [1,sympy_vars[0]**2,sympy_vars[1]**2]
-
-    #cav13-2 a0+a1*x2+a2*x1**2+a3*x2**2
-    #monomial_vector = [1,sympy_vars[1],sympy_vars[0]**2,sympy_vars[1]**2]
-
-    #cohencu a0+a1*x1+a2*x2+a3*x1**2
-    #monomial_vector = [1,sympy_vars[0],sympy_vars[1],sympy_vars[0]**2]
-
-    #unicycle a0+a1*x1*x2+a2*x1^2+a3*x2^2
-    #monomial_vector =[1,sympy_vars[0]*sympy_vars[1],sympy_vars[0]**2,sympy_vars[1]**2]
-
-    #circuit a0++a1*x1*x2+a2*x1^2+a3*x2^2
-    #monomial_vector =[1,sympy_vars[0]*sympy_vars[1],sympy_vars[0]**2,sympy_vars[1]**2]
 
     for mono in monomial_vector:
         unknown_coefficient_name = "_a_" + str(unknown_coefficients_index) + "_"

@@ -1,0 +1,31 @@
+; benchmark generated from python API
+(set-logic NRA)
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun a3 () Real)
+(declare-fun a2 () Real)
+(assert
+ (forall ((x1 Real) )(let (($x59 (<= (+ (+ (- 1.0) (* a2 x1)) (* a3 (* x1 x1))) 0.0)))
+ (let (($x60 (>= x1 (- 5.0))))
+ (let (($x61 (<= x1 5.0)))
+ (let (($x62 (and $x61 $x60)))
+ (=> (and (>= (* x1 (- 80.0 x1)) 0.0) $x62) $x59))))))
+ )
+(assert
+ (forall ((x1 Real) )(let ((?x72 (+ x1 (* (/ 1.0 2000.0) (- 1000.0 (* (/ 2709.0 5000.0) (* x1 x1)))))))
+ (let (($x60 (>= x1 (- 5.0))))
+ (let (($x61 (<= x1 5.0)))
+ (let (($x62 (and $x61 $x60)))
+ (let (($x82 (<= (* (+ x1 1.0) (- x1 82.0)) 0.0)))
+ (let (($x59 (<= (+ (+ (- 1.0) (* a2 x1)) (* a3 (* x1 x1))) 0.0)))
+ (=> (and $x59 $x82 $x62) (<= (+ (+ (- 1.0) (* a2 ?x72)) (* a3 (* ?x72 ?x72))) 0.0)))))))))
+ )
+(assert
+ (forall ((x1 Real) )(let (($x60 (>= x1 (- 5.0))))
+ (let (($x61 (<= x1 5.0)))
+ (let (($x62 (and $x61 $x60)))
+ (let (($x59 (<= (+ (+ (- 1.0) (* a2 x1)) (* a3 (* x1 x1))) 0.0)))
+ (let (($x92 (and $x59 (not (<= (* (+ x1 1.0) (- x1 82.0)) 0.0)) $x62)))
+ (=> $x92 (<= (* (+ x1 10.0) (- x1 79.0)) 0.0))))))))
+ )
+ (check-sat)

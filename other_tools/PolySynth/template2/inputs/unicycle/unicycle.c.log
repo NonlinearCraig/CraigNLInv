@@ -33,3 +33,15 @@ QP without handelman size: 55
 Number of L-vars with handelman: 54
 Number of L-vars without handelman: 48
 Z3 with Heuristics Solving Time: 0.17066121s
+##########
+Execution start time: 2024-06-27 21:48:17.959571
+##########
+Execution start time: 2024-06-27 21:50:22.623336
+##########
+Execution start time: 2024-06-27 23:25:19.021335
+Constraint Pair Generation Time: 0.06483412 s
+QP Generation Time: 0.23492384s
+QP with handelman size: 47
+QP without handelman size: 55
+Number of L-vars with handelman: 54
+Number of L-vars without handelman: 48
