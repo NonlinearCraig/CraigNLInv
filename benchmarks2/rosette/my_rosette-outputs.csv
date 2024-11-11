@@ -1,0 +1,22 @@
+Benchmark,Result,Time (seconds)
+hard, SUCCESS,0.488
+divbin, SUCCESS,0.312
+dijkstra, SUCCESS,0.278
+berkeley, SUCCESS,0.331
+cohendiv, TIMEOUT, -
+cohencu, TIMEOUT, -
+euclidex2, TIMEOUT, -
+fermat2, TIMEOUT, -
+firefly, SUCCESS,0.4
+illinois, SUCCESS,0.504
+lcm, SUCCESS,0.272
+mannadiv, SUCCESS,0.257
+mesi, SUCCESS,0.324
+moesi, SUCCESS,0.369
+petter, TIMEOUT, -
+readerswriters, TIMEOUT, -
+freire1, TIMEOUT, -
+freire2, TIMEOUT, -
+sqrt, TIMEOUT, -
+z3sqrt, TIMEOUT, -
+wensley, TIMEOUT, -

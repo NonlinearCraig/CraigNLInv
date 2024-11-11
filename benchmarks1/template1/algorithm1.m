@@ -2,7 +2,7 @@ yalmip('clear');
 clear;
 tic;
 % Read benchmark
-car;
+% car;
 % discrete;
 % logistic;
 % sgd;

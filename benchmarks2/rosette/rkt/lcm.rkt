@@ -1,0 +1,31 @@
+#lang rosette
+(require rosette/lib/synthax)
+(define-symbolic _a_0_ real?)
+(define-symbolic _a_1_ real?)
+(define-symbolic _a_2_ real?)
+(define-symbolic _a_3_ real?)
+(define-symbolic _a_4_ real?)
+(define-symbolic _a_5_ real?)
+(define-symbolic _a_6_ real?)
+(define-symbolic _a_7_ real?)
+(define-symbolic a_0 real?)
+(define-symbolic b_0 real?)
+(define-symbolic v_0 real?)
+(define-symbolic y_0 real?)
+(define-symbolic c_0 real?)
+(define-symbolic u_0 real?)
+(define-symbolic x_0 real?)
+(define start (current-inexact-milliseconds))
+
+(define sol
+  (synthesize
+   
+   #:forall (list a_0 b_0 y_0 u_0 c_0 v_0 x_0)
+   #:guarantee (and (implies (and (>= a_0 0) (>= b_0 0)) (and (>= (+ _a_0_ (* a_0 (+ _a_1_ _a_4_)) (* b_0 (+ _a_3_ _a_5_ _a_7_)) (* _a_6_ a_0 b_0)) 0)))
+(implies (and (>= (+ _a_0_ (* _a_1_ x_0) (* _a_2_ v_0) (* _a_3_ y_0) (* _a_4_ a_0) (* _a_5_ u_0) (* _a_6_ c_0) (* _a_7_ b_0)) 0) (>= -1.0 0)) (and (>= 1.0 0)))
+(implies (and (>= (+ _a_0_ (* _a_1_ x_0) (* _a_2_ v_0) (* _a_3_ y_0) (* _a_4_ a_0) (* _a_5_ u_0) (* _a_6_ c_0) (* _a_7_ b_0)) 0) (>= 1.0 0) (>= (+ x_0 (* -1 y_0)) 0)) (and (>= (+ _a_0_ (* _a_1_ x_0) (* _a_2_ v_0) (* _a_4_ a_0) (* _a_6_ c_0) (* _a_7_ b_0) (* u_0 (+ _a_2_ _a_5_)) (* y_0 (+ _a_3_ (* -1 _a_1_)))) 0)))
+(implies (and (>= (+ _a_0_ (* _a_1_ x_0) (* _a_2_ v_0) (* _a_3_ y_0) (* _a_4_ a_0) (* _a_5_ u_0) (* _a_6_ c_0) (* _a_7_ b_0)) 0) (>= 1.0 0) (>= (+ y_0 (* -1 x_0)) 0)) (and (>= (+ _a_0_ (* _a_3_ y_0) (* _a_4_ a_0) (* _a_5_ u_0) (* _a_6_ c_0) (* _a_7_ b_0) (* v_0 (+ _a_2_ _a_5_)) (* x_0 (+ _a_1_ (* -1 _a_3_)))) 0))))
+   )
+  )
+(define end (current-inexact-milliseconds))
+(print (- end start))
